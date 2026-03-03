@@ -61,7 +61,19 @@
 							Console.WriteLine("Character successfully created!");
 							break;
 						case 2:
-							Console.WriteLine
+							Console.WriteLine("\nAll Created Character!");
+							if (characterList.Count == 0)
+							{
+								Console.WriteLine("No characters have been created yet. Please create a character and try again.");
+							}
+							else
+							{
+								foreach (CharactersMade character in characterList)
+								{
+									character.DisplayCharacterInformation();
+								}
+							}
+							break;
 						case 3:
 						case 4:
 						case 5: 
