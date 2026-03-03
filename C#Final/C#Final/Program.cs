@@ -10,7 +10,7 @@
 			bool programMenu = true;
 			while (programMenu)
 			{
-				Console.WriteLine("\n1. Create New Character\n2. View all Characters\n3. Search Characters\n4. Display All Characters\n5. Exit Program");
+				Console.WriteLine("\n1. Create New Character\n2. View all Characters\n3. Search Characters\n4. Character Statistics\n5. Exit Program");
 				Console.Write("Enter Choice: ");
 				try
 				{
@@ -100,6 +100,33 @@
 							}
 							break;
 						case 4:
+							Console.WriteLine("Character Statistics!");
+							if (characterList.Count == 0)
+							{
+								Console.WriteLine("No characters made yet.");
+								break;
+							}
+							int totalLevel = 0;
+							double highestPower = 0;
+							int magicCount = 0;
+
+							foreach (CharactersMade character in characterList)
+							{
+								totalLevel += character.Level;
+								if (character.PowerLevelRank > highestPower)
+									highestPower = character.PowerLevelRank;
+								if (character.HasMagic)
+									magicCount++;
+							}
+
+							double averageLevel = totalLevel / characterList.Count;
+							double magicPercentage = (magicCount / characterList.Count) * 100;
+
+							Console.WriteLine($"Total Characters: {characterList.Count}");
+							Console.WriteLine($"Average Level: {averageLevel}");
+							Console.WriteLine($"Highest Power Level: {highestPower:F2}");
+							Console.WriteLine($"Characters with Magic: {magicCount} : {magicPercentage}%");
+							break;
 						case 5: 
 							programMenu = false;
 							break;
