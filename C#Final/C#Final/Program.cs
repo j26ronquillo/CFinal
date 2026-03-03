@@ -29,30 +29,31 @@
 							CharactersMade newCharacter = new CharactersMade(name, creator);
 
 							Console.Write("Enter Level: ");
-							int Level = int.Parse(Console.ReadLine());
+							newCharacter.Level = int.Parse(Console.ReadLine());
 
 							Console.Write("Enter Strength: ");
-							int Strength = int.Parse(Console.ReadLine());
+							newCharacter.Strength = int.Parse(Console.ReadLine());
 
 							Console.Write("Enter Defense: ");
-							int Defense = int.Parse(Console.ReadLine());
+							newCharacter.Defense = int.Parse(Console.ReadLine());
 
 							Console.Write("Enter Agility: ");
-							int CharacterAgility = int.Parse(Console.ReadLine());
+							newCharacter.CharacterAgility = int.Parse(Console.ReadLine());
 
 							Console.Write("Enter Critical Damage: ");
-							int CriticalDamage = int.Parse(Console.ReadLine());
+							newCharacter.CriticalDamage = int.Parse(Console.ReadLine());
 
 							Console.Write("Choose Class (Warrior or Mage): ");
-							string CharacterClass = Console.ReadLine();
+							newCharacter.CharacterClass = Console.ReadLine();
 
 							Console.Write("Has Magic? (true/false): ");
-							bool HasMagic = bool.Parse(Console.ReadLine());
+							newCharacter.HasMagic = bool.Parse(Console.ReadLine());
 
 							Console.Write("Has Passive Ability? (true/false): ");
-							bool HasPassiveAbility = bool.Parse(Console.ReadLine());
+							newCharacter.HasPassiveAbility = bool.Parse(Console.ReadLine());
 
 							Console.Write("Choose Difficulty of Character (1=Easy, 2=Normal, 3=Hard): ");
+							newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
 
 							newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
 							newCharacter.CalculatePowerLevel();
