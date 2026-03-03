@@ -6,7 +6,7 @@ namespace C_Final
 {
 	internal class CharactersMade
 	{
-		// 5+ string fields
+		// 5+ string fields (9)
 		public string CharacterName;
 		public string CreatorPlayer;
 		public string CharacterWeapon;
@@ -16,7 +16,7 @@ namespace C_Final
 		public string CharacterArmorType;
 		public string CharacterSpecialFood;
 		public string CharacterVoiceLine;
-		// 5+ numeric fields
+		// 5+ numeric fields (9)
 		public int Level;
 		public int Strength;
 		public int CriticalDamage;
@@ -26,22 +26,22 @@ namespace C_Final
 		public int AttackSpeed;
 		public int PlayerGold;
 		public int CharacterAgility;
-		// 3+ Boolean fields
+		// 3+ Boolean fields (4)
 		public bool HasPet;
 		public bool HasMagic;
 		public bool CanDualWield;
 		public bool HasPassiveAbility;
-		// 2+ selection-based fields (stiched or if/else if)
+		// 2+ selection-based fields (stiched or if/else if) (3)
 		public string CharacterClass;
 		public int DifficultyChoice;
 		public double PowerLevelRank;
-	public CharactersMade(string charactername, string creatorplayer)
+		public CharactersMade(string charactername, string creatorplayer)
 		{
 			CharacterName = charactername;
 			CreatorPlayer = creatorplayer;
 			PowerLevelRank = 0;
 		}
-	public void CalculatePowerLevel()
+		public void CalculatePowerLevel()
 		{
 			double basePower = Strength + Defense + CharacterAgility + (CriticalDamage * 0.5);
 
@@ -55,8 +55,8 @@ namespace C_Final
 				{
 					basePower += Level * 2;
 				}
-				else 
-				{ 
+				else
+				{
 					basePower += Level;
 				}
 			}
@@ -70,9 +70,9 @@ namespace C_Final
 				basePower *= 1.5;
 			}
 
-			PowerLevelRank = basePower; 
+			PowerLevelRank = basePower;
 		}
-	public void DisplayCharacterInformation()
+		public void DisplayCharacterInformation()
 		{
 			Console.WriteLine("\nCHARACTER INFORMATION");
 			Console.WriteLine($"Name: {CharacterName}");

@@ -5,7 +5,11 @@
 		static void Main(string[] args)
 		{
 			List<CharactersMade> characterList = new List<CharactersMade>();
-
+			/* The Game Character Creation System allows players to create and manage custom characters in a video game.
+			 * Users are given a menu and can enter character details such as their name, level, and other stats. 
+			 * With this input, the system then calculates a power rank to see how strong they really are. 
+			 * After user input is provided, the characters are stored and when need to be searched or viewed, the user can
+			 * find their descriptions and statistics. Welcome to the Game Character Creation System! */
 			Console.WriteLine("***Welcome to the Game Character Creation System!***");
 			bool programMenu = true;
 			while (programMenu)
@@ -56,7 +60,6 @@
 								Console.Write("Choose Difficulty of Character (1=Easy, 2=Normal, 3=Hard): ");
 								newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
 
-								newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
 								newCharacter.CalculatePowerLevel();
 								characterList.Add(newCharacter);
 
@@ -64,7 +67,7 @@
 							}
 							catch (FormatException)
 							{
-								Console.WriteLine("ERROR: Invald input. Please enter the correct values");
+								Console.WriteLine("ERROR: Invalid input. Please enter the correct values");
 							}
 							break;
 						case 2:
@@ -110,7 +113,7 @@
 							}
 							catch (FormatException)
 							{
-								Console.WriteLine("ERROR: Invald input. Please enter the correct values");
+								Console.WriteLine("ERROR: Invalid input. Please enter the correct values");
 							}
 							break;
 						case 4:
@@ -133,6 +136,8 @@
 									magicCount++;
 							}
 
+							
+							
 							double averageLevel = totalLevel / characterList.Count;
 							double magicPercentage = (magicCount / characterList.Count) * 100;
 
