@@ -35,33 +35,42 @@ namespace C_Final
 		public string CharacterClass;
 		public int DifficultyChoice;
 		public double PowerLevelRank;
+	public CharactersMade(string charactername, string creatorplayer)
+		{
+			CharacterName = charactername;
+			CreatorPlayer = creatorplayer;
+			PowerLevelRank = 0;
+		}
+	public void CalculatePowerLevel()
+		{
+			double basePower = Strength + Defense + CharacterAgility + (CriticalDamage * 0.5);
+
+			if (CharacterClass == "Warrior")
+			{
+				basePower += Strength * 1.5;
+			}
+			else if (CharacterClass == "Mage")
+			{
+				if (HasMagic && Level >= 10)
+				{
+					basePower += Level * 2;
+				}
+				else 
+				{ 
+					basePower += Level;
+				}
+			}
+			else
+			{
+				basePower += Level;
+			}
+
+			if (DifficultyChoice == 3 && CanDualWield)
+			{
+				basePower *= 1.5;
+			}
+
+			PowerLevelRank = basePower; 
+		}
 	}
-	public GameCharacter(
-		string CharacterName, 
-		string CreatorPlayer,
-		string CharacterWeapon,
-		string CharacterRace,
-		string CharacterClan,
-		string CharacterTitle,
-		string CharacterArmorType,
-		string CharacterSpecialFood,
-		string CharacterVoiceLine,
-		int Level,
-		int Strength,
-		int CriticalDamage,
-		int CriticalRate,
-		int HealthPoints,
-		int Defense,
-		int AttackSpeed,
-		int PlayerGold,
-		int CharacterAgility,
-		bool HasPet,
-		bool HasMagic,
-		bool CanDualWield,
-		bool HasPassiveAbility,
-		string CharacterClass,
-		int DifficultyChoice,
-		double PowerLevelRank,
-		)
-		{ }
 }
