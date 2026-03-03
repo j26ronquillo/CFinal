@@ -70,7 +70,7 @@ namespace C_Final
 				basePower *= 1.5;
 			}
 
-			basePower = PowerLevelRank;
+			PowerLevelRank = basePower;
 		}
 		public void DisplayCharacterInformation()
 		{
