@@ -10,7 +10,7 @@
 			bool programMenu = true;
 			while (programMenu)
 			{
-				Console.WriteLine("1. Create New Character\n2. View all Characters\n3. Search Characters\n4. Display All Characters\n5. Exit Program");
+				Console.WriteLine("\n1. Create New Character\n2. View all Characters\n3. Search Characters\n4. Display All Characters\n5. Exit Program");
 				Console.Write("Enter Choice: ");
 				try
 				{
@@ -43,7 +43,7 @@
 							Console.Write("Enter Critical Damage: ");
 							int CriticalDamage = int.Parse(Console.ReadLine());
 
-							Console.Write("Choose Class (Warrior, Mage, Rogue): ");
+							Console.Write("Choose Class (Warrior or Mage): ");
 							string CharacterClass = Console.ReadLine();
 
 							Console.Write("Has Magic? (true/false): ");
@@ -61,10 +61,10 @@
 							Console.WriteLine("Character successfully created!");
 							break;
 						case 2:
-							Console.WriteLine("\nAll Created Character!");
+							Console.WriteLine("\nAll Created Characters!");
 							if (characterList.Count == 0)
 							{
-								Console.WriteLine("No characters have been created yet. Please create a character and try again.");
+								Console.WriteLine("No characters have been created yet. Please create a character and try again.\n");
 							}
 							else
 							{
@@ -75,6 +75,29 @@
 							}
 							break;
 						case 3:
+							Console.WriteLine("\nCharacter Search");
+
+							if (characterList.Count == 0)
+							{
+								Console.WriteLine("Sorry, no characters available to search.");
+								break;
+							}
+							Console.Write("Please enter a character name to search (Caps Necessary):");
+							string searchName = Console.ReadLine();
+							bool searching = false;
+							foreach (CharactersMade character in characterList)
+							{
+								if (character.CharacterName == searchName)
+								{
+									character.DisplayCharacterInformation();
+									searching = true;
+								}
+							}
+							if (!searching)
+							{
+								Console.WriteLine("No character found. Try again.");
+							}
+							break;
 						case 4:
 						case 5: 
 							programMenu = false;

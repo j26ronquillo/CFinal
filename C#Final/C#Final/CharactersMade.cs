@@ -74,7 +74,7 @@ namespace C_Final
 		}
 	public void DisplayCharacterInformation()
 		{
-			Console.WriteLine("\n CHRACTER INFORMATION");
+			Console.WriteLine("\nCHARACTER INFORMATION");
 			Console.WriteLine($"Name: {CharacterName}");
 			Console.WriteLine($"Creator: {CreatorPlayer}");
 			Console.WriteLine($"Class: {CharacterClass}");
@@ -82,7 +82,7 @@ namespace C_Final
 			Console.WriteLine($"Strength: {Strength}");
 			Console.WriteLine($"Defense: {Defense}");
 			Console.WriteLine($"Agility: {CharacterAgility}");
-			Console.WriteLine($"Power Rank: {PowerLevelRank}");
+			Console.WriteLine($"Power Rank: {PowerLevelRank}\n");
 		}
 	}
 }
