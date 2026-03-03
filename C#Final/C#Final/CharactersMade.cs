@@ -72,5 +72,17 @@ namespace C_Final
 
 			PowerLevelRank = basePower; 
 		}
+	public void DisplayCharacterInformation()
+		{
+			Console.WriteLine("\n CHRACTER INFORMATION");
+			Console.WriteLine($"Name: {CharacterName}");
+			Console.WriteLine($"Creator: {CreatorPlayer}");
+			Console.WriteLine($"Class: {CharacterClass}");
+			Console.WriteLine($"Level: {Level}");
+			Console.WriteLine($"Strength: {Strength}");
+			Console.WriteLine($"Defense: {Defense}");
+			Console.WriteLine($"Agility: {CharacterAgility}");
+			Console.WriteLine($"Power Rank: {PowerLevelRank}");
+		}
 	}
 }
