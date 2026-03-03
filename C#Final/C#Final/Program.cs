@@ -56,6 +56,12 @@
 
 								Console.Write("Has Passive Ability? (true/false): ");
 								newCharacter.HasPassiveAbility = bool.Parse(Console.ReadLine());
+								
+								Console.Write("Can Dual Wield Weapons? (true/false): ");
+								newCharacter.CanDualWield = bool.Parse(Console.ReadLine());
+								
+								Console.Write("Has a Pet? (true/false): ");
+								newCharacter.HasPet = bool.Parse(Console.ReadLine());
 
 								Console.Write("Choose Difficulty of Character (1=Easy, 2=Normal, 3=Hard): ");
 								newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
