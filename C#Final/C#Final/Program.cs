@@ -18,48 +18,54 @@
 					switch (choice)
 					{
 						case 1:
+							try
+							{
+								Console.WriteLine("\nCreate New Character");
 
-							Console.WriteLine("\nCreate New Character");
+								Console.Write("Enter Username: ");
+								string creator = Console.ReadLine();
 
-							Console.Write("Enter Username: ");
-							string creator = Console.ReadLine();
+								Console.Write("Enter Character Name: ");
+								string name = Console.ReadLine();
+								CharactersMade newCharacter = new CharactersMade(name, creator);
 
-							Console.Write("Enter Character Name: ");
-							string name = Console.ReadLine();
-							CharactersMade newCharacter = new CharactersMade(name, creator);
+								Console.Write("Enter Level: ");
+								newCharacter.Level = int.Parse(Console.ReadLine());
 
-							Console.Write("Enter Level: ");
-							newCharacter.Level = int.Parse(Console.ReadLine());
+								Console.Write("Enter Strength: ");
+								newCharacter.Strength = int.Parse(Console.ReadLine());
 
-							Console.Write("Enter Strength: ");
-							newCharacter.Strength = int.Parse(Console.ReadLine());
+								Console.Write("Enter Defense: ");
+								newCharacter.Defense = int.Parse(Console.ReadLine());
 
-							Console.Write("Enter Defense: ");
-							newCharacter.Defense = int.Parse(Console.ReadLine());
+								Console.Write("Enter Agility: ");
+								newCharacter.CharacterAgility = int.Parse(Console.ReadLine());
 
-							Console.Write("Enter Agility: ");
-							newCharacter.CharacterAgility = int.Parse(Console.ReadLine());
+								Console.Write("Enter Critical Damage: ");
+								newCharacter.CriticalDamage = int.Parse(Console.ReadLine());
 
-							Console.Write("Enter Critical Damage: ");
-							newCharacter.CriticalDamage = int.Parse(Console.ReadLine());
+								Console.Write("Choose Class (Warrior or Mage): ");
+								newCharacter.CharacterClass = Console.ReadLine();
 
-							Console.Write("Choose Class (Warrior or Mage): ");
-							newCharacter.CharacterClass = Console.ReadLine();
+								Console.Write("Has Magic? (true/false): ");
+								newCharacter.HasMagic = bool.Parse(Console.ReadLine());
 
-							Console.Write("Has Magic? (true/false): ");
-							newCharacter.HasMagic = bool.Parse(Console.ReadLine());
+								Console.Write("Has Passive Ability? (true/false): ");
+								newCharacter.HasPassiveAbility = bool.Parse(Console.ReadLine());
 
-							Console.Write("Has Passive Ability? (true/false): ");
-							newCharacter.HasPassiveAbility = bool.Parse(Console.ReadLine());
+								Console.Write("Choose Difficulty of Character (1=Easy, 2=Normal, 3=Hard): ");
+								newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
 
-							Console.Write("Choose Difficulty of Character (1=Easy, 2=Normal, 3=Hard): ");
-							newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
+								newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
+								newCharacter.CalculatePowerLevel();
+								characterList.Add(newCharacter);
 
-							newCharacter.DifficultyChoice = int.Parse(Console.ReadLine());
-							newCharacter.CalculatePowerLevel();
-							characterList.Add(newCharacter);
-
-							Console.WriteLine("Character successfully created!");
+								Console.WriteLine("Character successfully created!");
+							}
+							catch (FormatException)
+							{
+								Console.WriteLine("ERROR: Invald input. Please enter the correct values");
+							}
 							break;
 						case 2:
 							Console.WriteLine("\nAll Created Characters!");
@@ -76,27 +82,35 @@
 							}
 							break;
 						case 3:
-							Console.WriteLine("\nCharacter Search");
+							try
+							{
+								Console.WriteLine("\nCharacter Search");
 
-							if (characterList.Count == 0)
-							{
-								Console.WriteLine("Sorry, no characters available to search.");
-								break;
-							}
-							Console.Write("Please enter a character name to search (Caps Necessary):");
-							string searchName = Console.ReadLine();
-							bool searching = false;
-							foreach (CharactersMade character in characterList)
-							{
-								if (character.CharacterName == searchName)
+								if (characterList.Count == 0)
 								{
-									character.DisplayCharacterInformation();
-									searching = true;
+									Console.WriteLine("Sorry, no characters available to search.");
+									break;
+								}
+
+								Console.Write("Please enter a character name to search (Caps Necessary):");
+								string searchName = Console.ReadLine();
+								bool searching = false;
+								foreach (CharactersMade character in characterList)
+								{
+									if (character.CharacterName == searchName)
+									{
+										character.DisplayCharacterInformation();
+										searching = true;
+									}
+								}
+								if (!searching)
+								{
+									Console.WriteLine("No character found. Try again.");
 								}
 							}
-							if (!searching)
+							catch (FormatException)
 							{
-								Console.WriteLine("No character found. Try again.");
+								Console.WriteLine("ERROR: Invald input. Please enter the correct values");
 							}
 							break;
 						case 4:
