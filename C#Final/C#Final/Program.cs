@@ -138,8 +138,8 @@
 
 							
 							
-							double averageLevel = totalLevel / characterList.Count;
-							double magicPercentage = (magicCount / characterList.Count) * 100;
+							double averageLevel = (double)totalLevel / characterList.Count;
+							double magicPercentage = ((double)magicCount / characterList.Count) * 100;
 
 							Console.WriteLine($"Total Characters: {characterList.Count}");
 							Console.WriteLine($"Average Level: {averageLevel}");
